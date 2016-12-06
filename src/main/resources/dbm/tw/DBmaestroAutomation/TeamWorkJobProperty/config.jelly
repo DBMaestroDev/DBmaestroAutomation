@@ -1,0 +1,45 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:c="/lib/credentials">
+    <f:section title="DBmaestro TeamWork Properties">
+        <f:entry name="dbType" title="DBmaestro TeamWork RDBMS" field="dbType" description="Override predefined RDBMS type">
+            <select name="dbType">
+                <f:option value="Default" selected="${instance.dbType =='Default'}">Default</f:option>
+                <f:option value="SQL" selected="${instance.dbType =='SQL'}">SQL</f:option>
+                <f:option value="Oracle" selected="${instance.dbType =='Oracle'}">Oracle</f:option>
+            </select>
+        </f:entry>
+        <f:entry title="DBmaestro TeamWork Server" field="controllerHost" description="Override predefined DBmaestro TeamWork server">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="DBmaestro TeamWork Automation Jar" field="jarPath" description="Override predefined location of executable jar of DBmaestro TeamWork Automation">
+            <f:textbox/>
+        </f:entry>
+        <f:block>
+            <table>
+                <f:optionalBlock title="Use Active Directory credential when not logged in?" name="useAuthorization"  checked="${instance.useAuthorization}" inline="true">
+                    <f:entry title="LDAP Server Name" field="windowsLdapServer" description="Optional, the LDAP server name being used for authenticate to DBmaestro TeamWork">
+                        <f:textbox/>
+                    </f:entry>
+                    <f:entry title="Domain name" field="windowsDomain" description="Optional, the Domain name being used for authenticate to DBmaestro TeamWork">
+                        <f:textbox/>
+                    </f:entry>
+                    <f:entry title="${%Credentials}" field="credentialsId">
+                        <c:select expressionAllowed="${expressionAllowed}" default=""/>
+                    </f:entry>
+                    <f:entry title="Username" field="windowsUsername" description="The user name being used for authenticate to DBmaestro TeamWork">
+                        <f:textbox/>
+                    </f:entry>
+                    <f:entry title="Password" field="windowsPassword" description="The password of the user name">
+                        <f:password/>
+                    </f:entry>
+                </f:optionalBlock>
+            </table>
+        </f:block>
+
+        <!--<f:entry title="Use Active Directory credential instead anonymous" field="useAuthorization" description="A check box to enable using a default user instead of Jenkins Anonymous">-->
+            <!--<f:checkbox />-->
+        <!--</f:entry>-->
+
+    </f:section>
+    <f:section/>
+</j:jelly>

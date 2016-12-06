@@ -1,0 +1,39 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!--
+    This Jelly script is used to produce the global configuration option.
+
+    Jenkins uses a set of tag libraries to provide uniformity in forms.
+    To determine where this tag is defined, first check the namespace URI,
+    and then look under $JENKINS/views/. For example, <f:section> is defined
+    in $JENKINS/views/lib/form/section.jelly.
+
+    It's also often useful to just check other similar scripts to see what
+    tags they use. Views are always organized according to its owner class,
+    so it should be straightforward to find them.
+  -->
+  <f:section title="DBmaestro TeamWork">
+    <f:entry title="DBmaestro TeamWork Automation Jar Path" field="clientRunPath" description="Location of executable jar of DBmaestro TeamWork Automation">
+        <f:textbox/>
+    </f:entry>
+    <f:entry title="DBmaestro TeamWork Server for MS-SQL" field="sqlControllerHost" description="Host server name of DBmaestro TeamWork server for MS-SQL">
+        <f:textbox/>
+    </f:entry>
+    <f:entry title="DBmaestro TeamWork Server for Oracle" field="oracleControllerHost" description="Host server name of DBmaestro TeamWork server for Oracle">
+        <f:textbox/>
+    </f:entry>
+      <f:entry name="defaultDbType" title="Default RDBMS" field="defaultDbType" description="The default RDBMS DBmaestro TeamWork works with">
+          <select name="defaultDbType">
+              <f:option value="SQL" selected="${instance.defaultDbType =='SQL'}">SQL</f:option>
+              <f:option value="Oracle" selected="${instance.defaultDbType =='Oracle'}">Oracle</f:option>
+          </select>
+      </f:entry>
+      <f:entry title="Show Advanced Commands" field="useAdvancedMode" description="A check box to show / hide advanced action">
+          <f:checkbox/>
+      </f:entry>
+      <!--<f:entry title="Authenticate with Specific Username" field="authenticationRequired" description="A check box to force using specific username and password">-->
+          <!--<f:checkbox/>-->
+      <!--</f:entry>-->
+  </f:section>
+</j:jelly>
+

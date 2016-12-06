@@ -1,0 +1,27 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <f:section title="DBmaestro TeamWork">
+        <f:entry name="dbType" title="Default DBmaestro TeamWork RDBMS" field="dbType" description="The default RDBMS DBmaestro TeamWork works with">
+            <select name="dbType">
+                <f:option value="SQL" selected="${instance.dbType =='SQL'}">SQL</f:option>
+                <f:option value="Oracle" selected="${instance.dbType =='Oracle'}">Oracle</f:option>
+            </select>
+        </f:entry>
+        <f:entry title="DBmaestro TeamWork Server" field="controllerHost" description="Host server name of DBmaestro TeamWork server">
+            <f:textbox/>
+        </f:entry>
+        <!--<f:block>
+            <table>
+                <f:optionalBlock title="Run as Windows User" name="useAuthorization" checked="${instance.useAuthorization}" inline="true">
+                    <f:entry title="Windows Usename" field="windowsUsername">
+                        <f:textbox/>
+                    </f:entry>
+                    <f:entry title="Windows Password" field="windowsPassword">
+                        <f:password/>
+                    </f:entry>
+                </f:optionalBlock>
+            </table>
+        </f:block>-->
+    </f:section>
+    <f:section/>
+</j:jelly>

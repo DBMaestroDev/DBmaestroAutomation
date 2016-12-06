@@ -1,0 +1,35 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+  <!--
+    Creates a text field that shows the value of the "name" property.
+    When submitted, it will be passed to the corresponding constructor parameter.
+  -->
+    <f:entry title="Pipeline Name" field="pipelineName">
+        <f:textbox />
+    </f:entry>
+    <f:entry title="Environment Name" field="environmentName">
+        <f:textbox />
+    </f:entry>
+    <f:entry title="Existing label name" field="labelName">
+        <f:textbox />
+    </f:entry>
+    <f:entry name="actionType" title="Action Type" field="actionType">
+        <select name="actionType">
+            <f:option value="forward" selected="${instance.actionType =='forward'}">forward</f:option>
+            <f:option value="refresh" selected="${instance.actionType =='refresh'}">refresh</f:option>
+            <f:option value="self" selected="${instance.actionType =='self'}">self</f:option>
+        </select>
+    </f:entry>
+    <f:advanced>
+        <f:block>
+            <table>
+                <f:optionalBlock title="Use other environment?" name="useOtherEnvironment" checked="${instance.useOtherEnvironment}" inline="true">
+                    <f:entry title="Other environment name" field="otherEnvironmentName">
+                        <f:textbox/>
+                    </f:entry>
+                </f:optionalBlock>
+            </table>
+        </f:block>
+    </f:advanced>
+</j:jelly>

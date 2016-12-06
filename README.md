@@ -1,4 +1,4 @@
-# DBmaestro-Jenkins-Plugin
+# DBmaestroAutomation
 Provides an easy to use UI extension for DBmaestro TeamWork Automation feature in the familiar Jenkins DevOp. This plugin exposes to the user additional DBmaestro build steps in Free style projects to connect to TeamWork automation command line tool: Generate, Build, Deploy, Checkin, Apply Labels and Set baselines, all with an easy on time or job by job configuration. Supports both SQL and Oracle TeamWork enterprise Solution versions Since version 5.1.1.
 
 Full list of added build steps:
